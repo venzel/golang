@@ -1,13 +1,10 @@
 package player
 
-import "fmt"
+import (
+	"fmt"
+)
 
-type gamer struct {
-	name string
-	wins uint32
-}
-
-func add(name string, wins uint32, p *[]gamer) {
+func add(name string, wins int, p *[]gamer) {
 	(*p) = append((*p), gamer{name,  wins})
 }
 
@@ -58,28 +55,28 @@ func print(p *[]gamer) {
 	}
 }
 
-func Execute() {
-	list := []gamer{}
+// func Execute() {
+// 	list := reference()
 
-	add("tiago", 3, &list)
-	add("liz", 2, &list)
-	add("cintia", 0, &list)
+// 	add("tiago", 3, &list)
+// 	add("liz", 2, &list)
+// 	add("cintia", 0, &list)
 
-	size := size(&list)
+// 	size := size(&list)
 
-	fmt.Println(size)
+// 	fmt.Println(size)
 
-	position := position("liz", &list)
+// 	position := position("liz", &list)
 
-	fmt.Println(position)
+// 	fmt.Println(position)
 
-	print(&list)
+// 	print(&list)
 
-	if position != -1 {
-		fmt.Println(model(position, &list))
-	}
+// 	if position != -1 {
+// 		fmt.Println(model(position, &list))
+// 	}
 
-	top := top(&list)
+// 	top := top(&list)
 
-	print(&top)
-}
+// 	print(&top)
+// }

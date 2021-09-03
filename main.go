@@ -21,7 +21,7 @@ func main()  {
 	functions.Execute(false)
 	arrays_slices.Execute(false)
 	// user_register.Register()
-	player.Execute()
+	player.Menu()
 
 	// Examples
 
