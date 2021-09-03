@@ -6,6 +6,7 @@ import (
 	"module/examples/sum"
 
 	// "module/examples/user_register"
+	"module/conditional"
 	"module/functions"
 	"module/loops"
 	"module/pointers"
@@ -19,7 +20,8 @@ func main()  {
 	pointers.Execute(false)
 	structs.Execute(false)
 	functions.Execute(false)
-	arrays_slices.Execute(true)
+	arrays_slices.Execute(false)
+	conditional.Execute(true)
 	// user_register.Register()
 	// player.Menu()
 
