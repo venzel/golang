@@ -35,5 +35,17 @@ func Execute(print bool) {
 		gamers_filter := gamers[i:f]
 
 		fmt.Println(gamers_filter)
+
+		/* */
+
+		arr := make([]float32, 2, 4)
+
+		arr = append(arr, 3.1)
+		arr = append(arr, 3.2)
+		arr = append(arr, 3.3)
+
+		fmt.Println(arr)
+		fmt.Println(len(arr))
+		fmt.Println(cap(arr))
 	}
 }

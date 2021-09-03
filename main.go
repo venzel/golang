@@ -2,7 +2,7 @@ package main
 
 import (
 	"module/arrays_slices"
-	"module/examples/player"
+	// "module/examples/player"
 	"module/examples/sum"
 
 	// "module/examples/user_register"
@@ -19,9 +19,9 @@ func main()  {
 	pointers.Execute(false)
 	structs.Execute(false)
 	functions.Execute(false)
-	arrays_slices.Execute(false)
+	arrays_slices.Execute(true)
 	// user_register.Register()
-	player.Menu()
+	// player.Menu()
 
 	// Examples
 
