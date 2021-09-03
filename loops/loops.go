@@ -1,10 +1,22 @@
 package loops
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func Execute(print bool) {
 
 	if print {
+
+		/* */
+
+		x := 0
+
+		for x < 10 {
+			time.Sleep(1 * time.Second)
+			x++;
+		}
 
 		/* */
 
