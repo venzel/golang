@@ -7,7 +7,9 @@ import (
 
 	// "module/examples/user_register"
 	"module/conditional"
+	"module/examples/send_mail"
 	"module/functions"
+	"module/interfaces"
 	"module/loops"
 	"module/maps"
 	"module/methods"
@@ -27,7 +29,9 @@ func main()  {
 	conditional.Execute(false)
 	recursion.Execute(false)
 	maps.Execute(false)
-	methods.Execute(true)
+	methods.Execute(false)
+	interfaces.Execute(true)
+	send_mail.Execute(false)
 	// user_register.Register()
 	// player.Menu()
 
