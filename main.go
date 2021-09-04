@@ -20,10 +20,10 @@ func main()  {
 	loops.Execute(false)
 	pointers.Execute(false)
 	structs.Execute(false)
-	functions.Execute(false)
+	functions.Execute(true)
 	arrays_slices.Execute(false)
 	conditional.Execute(false)
-	maps.Execute(true)
+	maps.Execute(false)
 	// user_register.Register()
 	// player.Menu()
 

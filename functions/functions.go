@@ -34,5 +34,21 @@ func Execute(print bool) {
 		}
 
 		fmt.Println(people())
+
+		/* */
+
+		var sm = func (title string, numbers ...int) int {
+			fmt.Println(title)
+
+			total := 0
+
+			for i := range numbers {
+				total += numbers[i]
+			}
+
+			return total
+		}
+
+		fmt.Println(sm("soma", 3, 4, 9, 21))
 	}
 }
