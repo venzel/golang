@@ -10,6 +10,7 @@ import (
 	"module/functions"
 	"module/loops"
 	"module/maps"
+	"module/methods"
 	"module/pointers"
 	"module/recursion"
 	"module/structs"
@@ -19,13 +20,14 @@ import (
 func main()  {
 	variables.Execute(false)
 	loops.Execute(false)
-	pointers.Execute(true)
+	pointers.Execute(false)
 	structs.Execute(false)
 	functions.Execute(false)
 	arrays_slices.Execute(false)
 	conditional.Execute(false)
 	recursion.Execute(false)
 	maps.Execute(false)
+	methods.Execute(true)
 	// user_register.Register()
 	// player.Menu()
 
