@@ -42,3 +42,37 @@ source ~/.zshrc
 ```bash
 go version
 ```
+
+## Criar, rodar, build e executar um arquivo main.go
+
+### Criar
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	fmt.Println("ok!")
+}
+```
+
+### Rodar
+
+```bash
+go run main.go
+```
+
+### Build
+
+```bash
+go build main.go
+```
+
+### Executar
+
+```bash
+./main
+```
