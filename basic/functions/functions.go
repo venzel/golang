@@ -50,5 +50,22 @@ func Execute(print bool) {
 		}
 
 		fmt.Println(sm("soma", 3, 4, 9, 21))
+
+		/* */
+
+		var soma = func(userName string, values ...uint8) (name string, count uint8) {
+			name = userName;
+			count = 0;
+	
+			for i := range values {
+				count += values[i];
+			}
+	
+			return;
+		}
+	
+		name, count := soma("tiago", 2, 4, 4);
+	
+		fmt.Println(name, count);
 	}
 }

@@ -49,5 +49,20 @@ func Execute(print bool) {
 				fmt.Println(i, j)
 			}
 		}
+
+		/* */
+
+		key := "kakaroto"
+
+		mp := make(map[string]uint8);
+	
+		mp["cintia"] = 10;
+		mp["liz"] = 15;
+	
+		_, exist := mp[key];
+	
+		if !exist {
+			fmt.Println(key, "nao existe!")
+		}
 	}
 }
