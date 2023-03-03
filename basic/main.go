@@ -2,12 +2,9 @@ package main
 
 import (
 	"module/arrays_slices"
-	// "module/examples/player"
-	"module/examples/sum"
-
-	// "module/examples/user_register"
 	"module/conditional"
 	"module/examples/send_mail"
+	"module/examples/sum"
 	"module/functions"
 	"module/interfaces"
 	"module/loops"

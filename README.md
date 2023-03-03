@@ -76,3 +76,7 @@ go build main.go
 ```bash
 ./main
 ```
+
+## VS Code extensões
+
+-   [Go] - Go Team at Google (Possui o intelisense e etc)

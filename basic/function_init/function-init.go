@@ -1,4 +1,4 @@
-package main
+package function_init
 
 import (
 	"fmt"
@@ -9,11 +9,11 @@ func main() {
 }
 
 // Executa primeiro
-fun init() {
+func init() {
 	fmt.Println("exec 1");
 }
 
 // Executa segundo
-fun init() {
+func init() {
 	fmt.Println("exec 2");
 }
