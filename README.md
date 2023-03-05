@@ -27,8 +27,20 @@ sudo tar -C /usr/local -xvf go1.20.1.linux-amd64.tar.gz
 ```bash
 nano ~/.zshrc
 
+# Cria pasta $HOME/goVenzel
 # Insere
-export PATH=$PATH:/usr/local/go/bin
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/goVenzel
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+```
+
+### No Vscode
+
+```json
+{
+    "go.gopath": "/usr/local/go/bin"
+}
 ```
 
 ### Atualiza o ZSHRC
@@ -80,3 +92,9 @@ go build main.go
 ## VS Code extensões
 
 -   [Go] - Go Team at Google (Possui o intelisense e etc)
+
+## Adicionar um módulo gamer
+
+```bash
+go mod init gamer
+```
