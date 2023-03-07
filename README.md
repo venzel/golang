@@ -40,6 +40,11 @@ export PATH=$PATH:$GOROOT/bin
 ```json
 {
     "go.gopath": "/usr/local/go/bin"
+	"[go]": {
+        "editor.insertSpaces": true,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "golang.go"
+    },
 }
 ```
 

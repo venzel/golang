@@ -11,7 +11,23 @@ func Execute(print bool) {
 
 		/* */
 
-		x := 0
+		k := 0;
+
+		for {
+			time.Sleep(time.Second)
+	
+			fmt.Println("ok!")
+			
+			if k == 2 {
+				break;
+			}
+	
+			k++;
+		}
+
+		/* */
+
+		x := 0;
 
 		for x < 10 {
 			time.Sleep(1 * time.Second)
