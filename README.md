@@ -103,3 +103,9 @@ go build main.go
 ```bash
 go mod init gamer
 ```
+
+## Baixar um pacote
+
+```bash
+go get github.com/fatih/color
+```
