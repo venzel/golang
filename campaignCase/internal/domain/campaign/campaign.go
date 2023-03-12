@@ -1,50 +1,69 @@
 package campaign
 
 import (
+	"campaign/internal/domain/contact"
 	"errors"
 	"time"
 
 	"github.com/rs/xid"
 )
 
-type Contact struct {
-	Email string
-}
-
 type Campaign struct {
-	ID        string
+	Id        string
 	Name      string
 	Content   string
 	CreatedAt time.Time
-	Contacts  []Contact
+	contact.Contact
 }
 
-func CreateCampaign(name string, content string, emails []string) (*Campaign, error) {
-	contacts := make([]Contact, len(emails))
+func CreateCampaign(name string, content string, contact contact.Contact) (*Campaign, error) {
+	message, valid := validate(&name, &content, &contact)
 
-	message, err := validate(&name, &content, &emails)
-
-	if err {
+	if !valid {
 		return nil, errors.New(message)
 	}
 
-	for index, value := range emails {
-		contacts[index].Email = value
-	}
-
 	return &Campaign{
-		ID:        xid.New().String(),
+		Id:        xid.New().String(),
 		Name:      name,
 		Content:   content,
 		CreatedAt: time.Now(),
-		Contacts:  contacts,
+		Contact:   contact,
 	}, nil
 }
 
-func validate(name *string, content *string, emails *[]string) (string, bool) {
-	if *name == "" {
-		return "name is required", true
+func validate(name *string, content *string, contact *contact.Contact) (string, bool) {
+	if message, valid := validateName(name); !valid {
+		return message, false
 	}
 
-	return "", false
+	if message, valid := validateContent(content); !valid {
+		return message, false
+	}
+
+	if message, valid := validateContact(contact); !valid {
+		return message, false
+	}
+
+	return "", true
+}
+
+func validateName(name *string) (string, bool) {
+	if *name == "" {
+		return "name is required", false
+	}
+
+	return "", true
+}
+
+func validateContent(content *string) (string, bool) {
+	if *content == "" {
+		return "content is required", false
+	}
+
+	return "", true
+}
+
+func validateContact(contact *contact.Contact) (string, bool) {
+	return "", true
 }
