@@ -10,5 +10,11 @@ type CampaignService struct {
 }
 
 func (s *CampaignService) Create(dto *dtos.CreateCampaignDto) *dtos.ResponseCampaignDto {
-	return &dtos.ResponseCampaignDto{}
+	create, _ := s.Repository.Create(dto)
+
+	// contact, _ := contact.CreateContact(&dto.Emails)
+
+	// campaign, _ := campaign.CreateCampaign(&dto.Name, &dto.Content, contact)
+
+	return create
 }

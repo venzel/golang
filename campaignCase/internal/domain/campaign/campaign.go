@@ -16,8 +16,8 @@ type Campaign struct {
 	contact.Contact
 }
 
-func CreateCampaign(name string, content string, contact contact.Contact) (*Campaign, error) {
-	message, valid := validate(&name, &content, &contact)
+func CreateCampaign(name *string, content *string, contact *contact.Contact) (*Campaign, error) {
+	message, valid := validate(name, content, contact)
 
 	if !valid {
 		return nil, errors.New(message)
@@ -25,10 +25,10 @@ func CreateCampaign(name string, content string, contact contact.Contact) (*Camp
 
 	return &Campaign{
 		Id:        xid.New().String(),
-		Name:      name,
-		Content:   content,
+		Name:      *name,
+		Content:   *content,
 		CreatedAt: time.Now(),
-		Contact:   contact,
+		Contact:   *contact,
 	}, nil
 }
 

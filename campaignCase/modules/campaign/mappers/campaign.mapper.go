@@ -4,19 +4,28 @@ import (
 	"campaign/internal/domain/campaign"
 	"campaign/internal/domain/contact"
 	"campaign/modules/campaign/dtos"
+	"errors"
 )
 
-func ToEntity(dto *dtos.CreateCampaignDto) *campaign.Campaign {
-	contacts := contact.Contact{
-		Emails: dto.Emails,
+type CampaignMapper struct{}
+
+func (c *CampaignMapper) ToEntity(dto *dtos.CreateCampaignDto) (*campaign.Campaign, error) {
+	contact, err := contact.CreateContact(&dto.Emails)
+
+	if err != nil {
+		return nil, errors.New("ocorreu um erro na criação do contato")
 	}
 
-	campaign, _ := campaign.CreateCampaign(dto.Name, dto.Name, contacts)
+	campaign, err := campaign.CreateCampaign(&dto.Name, &dto.Name, contact)
 
-	return campaign
+	if err != nil {
+		return nil, errors.New("ocorreu um erro na criação da campanha")
+	}
+
+	return campaign, nil
 }
 
-func ToDto(campaign *campaign.Campaign) *dtos.ResponseCampaignDto {
+func (c *CampaignMapper) ToDto(campaign *campaign.Campaign) *dtos.ResponseCampaignDto {
 	return &dtos.ResponseCampaignDto{
 		Id:   campaign.Id,
 		Name: campaign.Name,
