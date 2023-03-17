@@ -44,12 +44,12 @@ func main() {
 	fmt.Println(polvoToJson)
 
 	tatuArgs := `{"name":"Tatu","size":10}`
-	var tatu Animal
+	tatu := Animal{}
 	ToObject(&tatuArgs, &tatu)
 	fmt.Println(tatu)
 
 	griloArgs := `{"name":"Grilo","size":20,"color":"red"}`
-	var grilo Insect
+	grilo := Insect{}
 	ToObject(&griloArgs, &grilo)
 	fmt.Println(grilo)
 }
