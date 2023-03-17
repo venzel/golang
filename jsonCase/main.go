@@ -18,8 +18,8 @@ type Insect struct {
 	Color string `json:"color"`
 }
 
-func ToJson(a *Animal) *bytes.Buffer {
-	jsonByte, err := json.Marshal(*a)
+func ToJson[T Animal](t *T) *bytes.Buffer {
+	jsonByte, err := json.Marshal(*t)
 
 	if err != nil {
 		log.Fatal()
@@ -39,13 +39,17 @@ func main() {
 	peixeToJson := ToJson(&peixe)
 	fmt.Println(peixeToJson)
 
-	tatuArgs := `{"name":"Cago","size":10}`
-	var cago Animal
-	ToObject(&tatuArgs, &cago)
-	fmt.Println(cago.Name)
+	polvo := Animal{"Povo", 4}
+	polvoToJson := ToJson(&polvo)
+	fmt.Println(polvoToJson)
+
+	tatuArgs := `{"name":"Tatu","size":10}`
+	var tatu Animal
+	ToObject(&tatuArgs, &tatu)
+	fmt.Println(tatu)
 
 	griloArgs := `{"name":"Grilo","size":20,"color":"red"}`
 	var grilo Insect
 	ToObject(&griloArgs, &grilo)
-	fmt.Println(grilo.Color)
+	fmt.Println(grilo)
 }
