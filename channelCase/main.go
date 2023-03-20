@@ -1,33 +1,27 @@
 package main
 
-import (
-	"fmt"
-	"time"
-)
+import "fmt"
 
-func work(c chan int, worker string, m map[string]int) {
-	for res := range c {
-		m[worker] = res
-		fmt.Println(worker, res)
-		time.Sleep(time.Second)
+func worker(c chan int, list *[]int) {
+	for v := range c {
+		(*list) = append(*list, v)
+		fmt.Println(v)
+		// time.Sleep(time.Second)
 	}
 
+	close(c)
 }
 
 func main() {
 	c := make(chan int)
 
-	m := make(map[string]int)
+	list := []int{}
 
-	for i := 0; i < 10; i++ {
-		go work(c, fmt.Sprintf("worker%d", i+1), m)
+	for i := 0; i < 2; i++ {
+		go worker(c, &list)
 	}
 
-	for i := 0; i < 100; i++ {
+	for i := 1; i < 11; i++ {
 		c <- i
 	}
-
-	fmt.Println(m)
-
-	close(c)
 }

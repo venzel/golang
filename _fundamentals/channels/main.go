@@ -6,21 +6,22 @@ func main() {
 	channel := make(chan string)
 
 	go write(channel, "bola")
+	go write(channel, "bola")
 
-    for {
-        message, open := <- channel
+	for {
+		message, open := <-channel
 
-        if !open {
-            break
-        }
+		if !open {
+			break
+		}
 
-        fmt.Println(message)
-    }
+		fmt.Println(message)
+	}
 
 }
 
 func write(channel chan string, text string) {
-    channel <- text
+	channel <- text
 
-    close(channel)
+	close(channel)
 }
