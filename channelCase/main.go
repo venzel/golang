@@ -1,27 +1,36 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
-func worker(c chan int, list *[]int) {
-	for v := range c {
-		(*list) = append(*list, v)
-		fmt.Println(v)
-		// time.Sleep(time.Second)
+func worker(c chan string, gamer *string) {
+	for i := 0; i < 10; i++ {
+		c <- *gamer
+		time.Sleep(time.Millisecond * 500)
 	}
-
-	close(c)
 }
 
 func main() {
-	c := make(chan int)
+	c := make(chan string)
 
-	list := []int{}
+	p := make(map[int]string)
 
-	for i := 0; i < 2; i++ {
-		go worker(c, &list)
+	p[0] = "tiago"
+	p[1] = "marcos"
+	p[2] = "matheus"
+
+	p1, p2, p3 := p[0], p[1], p[2]
+
+	for i := 0; i < 3; i++ {
+		go worker(c, &p1)
+		go worker(c, &p2)
+		go worker(c, &p3)
 	}
 
-	for i := 1; i < 11; i++ {
-		c <- i
+	for i := 0; i < 10; i++ {
+		msg := <-c
+		fmt.Println(i, msg)
 	}
 }
