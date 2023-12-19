@@ -6,19 +6,19 @@ import (
 )
 
 func execute() {
-    fmt.Println("executou!")
+	fmt.Println("executou!")
 }
 
 func main() {
-    defer execute()
-    
-    file, err := os.Create("./gamer.txt")
-    
-    if err != nil {
-        panic(err)
-    }
-    
-    defer file.Close()
-    
-    file.Write([]byte("bola"))
+	defer execute()
+
+	file, err := os.Create("./gamer.txt")
+
+	defer file.Close()
+
+	if err != nil {
+		panic(err)
+	}
+
+	file.Write([]byte("bola"))
 }
